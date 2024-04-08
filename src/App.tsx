@@ -63,8 +63,10 @@ export function App() {
           onChange={async (newValue) => {
             if (newValue === null) {
               return
+            } else if (newValue.id === "") {
+              await loadAllTransactions()
+              return
             }
-
             await loadTransactionsByEmployee(newValue.id)
           }}
         />
